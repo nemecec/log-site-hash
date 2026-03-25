@@ -1,0 +1,19 @@
+[versions]
+logback-gelf = "6.1.2"
+murmur = "1.0.0"
+junit-jupiter = "5.11.4"
+assertj = "3.27.3"
+mockito = "5.15.2"
+maven-publish = "0.30.0"
+
+[libraries]
+logback-gelf = { module = "de.siegmar:logback-gelf", version.ref = "logback-gelf" }
+murmur = { module = "com.sangupta:murmur", version.ref = "murmur" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito" }
+mockito-junit-jupiter = { module = "org.mockito:mockito-junit-jupiter", version.ref = "mockito" }
+
+[plugins]
+maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish" }
