@@ -1,0 +1,35 @@
+.gradle
+**/build/
+!src/**/build/
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Avoid ignore Gradle wrapper properties
+!gradle-wrapper.properties
+
+# Cache of project
+.gradletasknamecache
+
+# Eclipse
+.project
+.classpath
+
+# Kotlin
+.kotlin
+
+# IntelliJ IDEA
+.idea
+
+# Rust
+**/target/
+Cargo.lock
+
+# Python
+**/.venv/
+**/__pycache__/
+**/.pytest_cache/
+*.pyc
+
+# Claude Code
+/.claude/

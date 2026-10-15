@@ -1,0 +1,22 @@
+<configuration>
+  <appender name="GELF_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="de.siegmar.logbackgelf.GelfEncoder">
+      <includeRawMessage>false</includeRawMessage>
+      <includeMarker>true</includeMarker>
+      <includeMdcData>true</includeMdcData>
+      <includeCallerData>false</includeCallerData>
+      <includeRootCauseData>false</includeRootCauseData>
+      <includeLevelName>true</includeLevelName>
+      <appendNewline>true</appendNewline>
+
+      <fieldMapper class="dev.nemecec.logsitehash.logbackgelf.LogSiteHashFieldMapper">
+        <logSiteHashFieldName>log_site_hash</logSiteHashFieldName>
+        <messageTemplateFieldName>msg_template</messageTemplateFieldName>
+      </fieldMapper>
+    </encoder>
+  </appender>
+
+  <root level="INFO">
+    <appender-ref ref="GELF_CONSOLE" />
+  </root>
+</configuration>
