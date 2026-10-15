@@ -73,7 +73,7 @@ jobs:
           gh release create "v${{ inputs.version }}" \
             --title "v${{ inputs.version }}" \
             --generate-notes \
-            lib/java/build/libs/*.jar
+            lib/java/*/build/libs/*.jar
 
       - name: Set next development version
         run: |

@@ -1,0 +1,14 @@
+[versions]
+slf4j = "2.0.17"
+logback = "1.5.18"
+lsh = "0.1.0-SNAPSHOT"
+junit-jupiter = "5.11.4"
+assertj = "3.27.3"
+
+[libraries]
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+lsh-logback-gelf = { module = "dev.nemecec.logsitehash:lsh-logback-gelf", version.ref = "lsh" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }

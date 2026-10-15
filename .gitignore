@@ -21,5 +21,15 @@
 # IntelliJ IDEA
 .idea
 
+# Rust
+**/target/
+Cargo.lock
+
+# Python
+**/.venv/
+**/__pycache__/
+**/.pytest_cache/
+*.pyc
+
 # Claude Code
 /.claude/

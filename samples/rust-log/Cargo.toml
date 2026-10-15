@@ -1,0 +1,11 @@
+[package]
+name = "log-site-hash-rust-log-sample"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+log = "0.4"
+env_logger = "0.11"
+murmur3 = "0.5"
+uuid = "1"

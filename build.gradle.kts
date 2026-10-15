@@ -27,10 +27,10 @@ subprojects {
         configure<MavenPublishBaseExtension> {
             publishToMavenCentral(automaticRelease = true)
             signAllPublications()
-            coordinates(group.toString(), name, version.toString())
+            coordinates(group.toString(), "lsh-$name", version.toString())
             pom {
-                description.set("Utilities for implementing log site hashing with Logback and GELF")
-                name.set(project.name)
+                description.set("Utilities for implementing log site hashing")
+                name.set("lsh-${project.name}")
                 url.set("https://github.com/nemecec/log-site-hash")
                 licenses {
                     license {

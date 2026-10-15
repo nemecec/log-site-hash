@@ -11,7 +11,8 @@ on:
       - '**'
 
 jobs:
-  build:
+  java:
+    name: Java
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
@@ -25,11 +26,64 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v5
 
-      - name: Build with Gradle
+      - name: Build libraries
         run: ./gradlew build
+
+      - name: Build java-slf4j sample
+        run: ./gradlew build
+        working-directory: samples/java-slf4j
+
+      - name: Build kotlin-logging-with-plugin sample
+        run: ./gradlew build
+        working-directory: samples/kotlin-logging-with-plugin
+
+      - name: Build kotlin-logging-without-plugin sample
+        run: ./gradlew build
+        working-directory: samples/kotlin-logging-without-plugin
 
       - name: Publish test results
         uses: mikepenz/action-junit-report@v6
         if: success() || failure()
         with:
           report_paths: '**/build/test-results/test/TEST-*.xml'
+
+  rust:
+    name: Rust
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v6
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Test rust-log sample
+        run: cargo test
+        working-directory: samples/rust-log
+
+      - name: Test rust-opentelemetry sample
+        run: cargo test
+        working-directory: samples/rust-opentelemetry
+
+  python:
+    name: Python
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Test python-logging sample
+        working-directory: samples/python-logging
+        run: |
+          pip install -q -r requirements.txt pytest
+          pytest -v test_main.py
+
+      - name: Test python-opentelemetry sample
+        working-directory: samples/python-opentelemetry
+        run: |
+          pip install -q -r requirements.txt pytest
+          pytest -v test_main.py
